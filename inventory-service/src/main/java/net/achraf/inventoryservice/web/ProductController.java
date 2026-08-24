@@ -2,6 +2,7 @@ package net.achraf.inventoryservice.web;
 
 import net.achraf.inventoryservice.entities.Product;
 import net.achraf.inventoryservice.repository.ProductRepository;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,11 @@ public class ProductController {
     @GetMapping("/products/{id}")
     public Product productById(@PathVariable String id){
         return productRepository.findById(id).get();
+    }
+
+    @GetMapping("/auth")
+    public Authentication authentication(Authentication authentication){
+        return authentication;
     }
 
 
